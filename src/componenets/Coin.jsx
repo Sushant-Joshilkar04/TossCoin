@@ -24,8 +24,11 @@ const Coin = () => {
       } else {
         setTailsCount(prev => prev + 1);
       }
-      setFlipping(false);
-    }, 1000);
+      // Set flipping to false after a slight delay to ensure the animation completes
+      setTimeout(() => {
+        setFlipping(false);
+      }, 100); // Adjust this delay if needed
+    }, 900); // Adjust this delay to slightly before the animation ends
   };
 
   return (
@@ -33,7 +36,7 @@ const Coin = () => {
       className="flex flex-col items-center justify-center h-screen w-full p-4 bg-cover bg-center" 
       style={{ backgroundImage: `url(${BgImage})` }}
     >
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10 sm:mb-16 md:mb-20 text-white shadow-md font-['Press_Start_2P'] text-center px-4">Coin Flip Simulator</h1>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10 sm:mb-16 md:mb-20 text-white shadow-md font-['Press_Start_2P'] text-center px-4">Coin Flip Simulator</h1>
 
       <div
         className={`w-40 h-40 flex items-center justify-center border-4 border-gray-800 rounded-full shadow-lg transition-transform duration-1000 ${flipping ? "animate-flip" : ""}`}
